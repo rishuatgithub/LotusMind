@@ -4,18 +4,29 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity(name="mst_assignment")
 public class Assignment {
 
-	@Column(name="Org ID", nullable=false)
+	@Column(nullable=false)
 	private int org_id;
+	@Column(nullable=false)
 	private int a_term_id;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(nullable=false)
 	private int a_assignment_id;
 	private String assignment_name;
 	private String display_name;
 	private int a_class_id;
 	private int a_subject_id;
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	private Date assignment_date = new Date();
 	private Date due_date = new Date();
 	private int hours_required;
