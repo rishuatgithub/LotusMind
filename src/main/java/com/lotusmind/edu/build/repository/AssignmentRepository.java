@@ -1,10 +1,12 @@
-package com.lotusmind.edu.build.assignments;
+package com.lotusmind.edu.build.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
+import com.lotusmind.edu.build.entity.Assignment;
 
 public interface AssignmentRepository extends CrudRepository<Assignment, String>{
 	

@@ -1,11 +1,12 @@
-package com.lotusmind.edu.build.login;
+package com.lotusmind.edu.build.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.lotusmind.edu.build.repository.LoginRepository;
 
 @RestController
 @RequestMapping(path="/login")
@@ -26,7 +27,7 @@ public class LoginController {
 		return "LOGIN SUCCESS";
 	}
 
-	@RequestMapping("/newuser")
+	/*@RequestMapping("/newuser")
 	public @ResponseBody String newuser(@RequestParam(value="username") String username, 
 			@RequestParam(value="pwd") String pass){
 		
@@ -36,6 +37,6 @@ public class LoginController {
 			return "FAIL";
 		}
 		return "ADDED";
-	}
+	}*/
 
 }

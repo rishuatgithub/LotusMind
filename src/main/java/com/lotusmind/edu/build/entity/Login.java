@@ -1,4 +1,4 @@
-package com.lotusmind.edu.build.login;
+package com.lotusmind.edu.build.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

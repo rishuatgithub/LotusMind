@@ -1,0 +1,267 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+}
+
+/*---------------------Main Body------------------------------------*/
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/*--------------------- Background ------------------------------------*/
+
+.bg {
+    /* The image used */
+    background-image: url("../images/lotus_image.jpg");
+
+    /* Full height */
+    height: 100%;
+    opacity: 0.8;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lm-title {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.lm-title h1{
+    margin: 0;
+    font-family: Poppins-Bold;
+    font-size: 80px;
+}
+.lm-title h3{
+    margin-top: 0;
+    margin-bottom: 100px;
+    font-family: Poppins-Medium;
+    font-size: 30px;
+}
+
+.lm-title button {
+  border: 1px solid white;
+  outline: 0;
+  display: inline-block;
+  padding: 15px 50px;
+  border-radius: 8px;
+  color: white;
+  /*background-color: rgba(76, 175, 80, 0.3);*/
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  font-size:15px;
+  font-family: Poppins-SemiBold;
+}
+
+.lm-title button:hover {
+  background-color: mediumseagreen;
+  color: white;
+}
+
+/* ------------ About ------------------*/
+.about{
+    width: 100%;
+    height: 100%;
+    border: 0px solid red;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-content: center;
+    
+}
+.about > div{
+    border:0px solid black;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 7%;
+    padding-left: 20px;
+    padding-right: 10px;
+    width: 34%;
+}
+.about > div h2{
+    font-family: Poppins-Regular;
+}
+
+.about > div img{
+    width: 30%;
+    border-radius: 10px;
+    
+}
+.about > div p{
+    font-family: Poppins-Regular;
+    
+}
+
+.enroll{
+    margin-top: 20%;
+    
+    font-family: Poppins-SemiBold;
+    font-size: 20px;
+    background-color: transparent;
+    padding: 5px 20px;
+    color: deeppink;
+    border: 1px solid grey;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    
+    -webkit-transition: border 1s;
+    -o-transition: border 1s;
+    -moz-transition: border 1s;
+    transition: border 1s;
+}
+.enroll:hover{
+    border: 1px solid red;
+    background-color: ghostwhite;
+}
+
+/* ----------- School Finder ------------*/
+
+.sfinder{
+    width: 100%;
+    height: 100%;
+    border: 0px solid green;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-content: center;
+        
+}
+
+.sfinder > div{
+    border:0px solid black;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 7%;
+    padding-left: 20px;
+    padding-right: 10px;
+    width: 50%;
+}
+
+.sfinder > div h1,p{
+    font-family: Poppins-Regular;
+}
+
+.sfinder > div img{
+    width: 100%;
+    border-radius: 10px;
+    
+}
+
+.input-loc {
+    font-family: Poppins-SemiBold;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.2;
+    display: block;
+    width: 50%;
+    height: 52px;
+    background: white;
+    background-image: url('../images/location.png');
+    background-size: 40px;
+    background-position: 5px; 
+    background-position: right;
+    background-repeat: no-repeat;
+   
+    margin: 0 auto;
+    border: 0px;
+    border-bottom: 2px solid;
+    border-bottom-color: lightgrey;
+    outline: none;
+    
+    /*-webkit-transition: border 0.4s;
+    -o-transition: border 0.4s;
+    -moz-transition: border 0.4s;
+    transition: border 0.4s;*/
+
+}
+
+.input-loc:focus{
+    border-bottom: 1px solid red;
+    background: none;
+    
+}
+
+
+/* ------------ Footer ----------------- */
+.footer{
+    width: 100%;
+    height: 10%;
+    border: 0px solid blue;
+    box-sizing: border-box;
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    background-color: whitesmoke;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-content: center;
+    
+}
+.footer > div{
+    padding: 5px;
+    margin: 0 auto;
+}
+.footer > div a{
+    text-decoration: none;
+    
+}
+.footer > div a:hover{
+    color: deeppink;
+}
+
+
+
+/*--------------------Popup window-------------------*/
+.form{
+		max-width:500px;
+		min-width:250px;
+		padding:10px 50px;
+		border:6px;
+		border-style:solid;
+		border-color:double;
+		border-radius:10px;
+		background-color:lightgreen;
+}
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}

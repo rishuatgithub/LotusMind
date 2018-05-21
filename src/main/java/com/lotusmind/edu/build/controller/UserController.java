@@ -1,4 +1,4 @@
-package com.lotusmind.edu.build.userinfo;
+package com.lotusmind.edu.build.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.lotusmind.edu.build.entity.User;
+import com.lotusmind.edu.build.repository.UserRepository;
 
 @RestController
 @RequestMapping(path="/user")

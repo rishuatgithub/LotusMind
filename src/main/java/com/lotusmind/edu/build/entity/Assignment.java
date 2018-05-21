@@ -1,4 +1,4 @@
-package com.lotusmind.edu.build.assignments;
+package com.lotusmind.edu.build.entity;
 
 import java.util.Date;
 
