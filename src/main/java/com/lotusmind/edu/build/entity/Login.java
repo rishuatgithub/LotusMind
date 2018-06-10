@@ -1,38 +1,63 @@
 package com.lotusmind.edu.build.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity(name="login")
 public class Login {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int userid;
-	private String username;
-	private String password;
+	private int login_u_seq_id;
+	private int org_id;
+	private int user_id;
+	private String login_u_password;	
+	@DateTimeFormat()
+	private Date created_on;
+	@DateTimeFormat()
+	private Date last_updated_on;
 	
-		
-	public String getUsername() {
-		return username;
+	
+	public int getLogin_u_seq_id() {
+		return login_u_seq_id;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLogin_u_seq_id(int login_u_seq_id) {
+		this.login_u_seq_id = login_u_seq_id;
 	}
-	public String getPassword() {
-		return password;
+	public int getOrg_id() {
+		return org_id;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setOrg_id(int org_id) {
+		this.org_id = org_id;
 	}
-	public int getUserid() {
-		return userid;
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
+	public String getLogin_u_password() {
+		return login_u_password;
+	}
+	public void setLogin_u_password(String login_u_password) {
+		this.login_u_password = login_u_password;
+	}
+	public Date getCreated_on() {
+		return created_on;
+	}
+	public void setCreated_on(Date created_on) {
+		this.created_on = created_on;
+	}
+	public Date getLast_updated_on() {
+		return last_updated_on;
+	}
+	public void setLast_updated_on(Date last_updated_on) {
+		this.last_updated_on = last_updated_on;
+	}
+	
 	
 	
 
