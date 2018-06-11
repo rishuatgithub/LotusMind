@@ -18,7 +18,7 @@ public class Login {
 	@DateTimeFormat()
 	private Date created_on;
 	@DateTimeFormat()
-	private Date last_updated_on;
+	private Date last_modified_on;
 	
 	
 	public int getLogin_u_seq_id() {
@@ -51,13 +51,12 @@ public class Login {
 	public void setCreated_on(Date created_on) {
 		this.created_on = created_on;
 	}
-	public Date getLast_updated_on() {
-		return last_updated_on;
+	public Date getLast_modified_on() {
+		return last_modified_on;
 	}
-	public void setLast_updated_on(Date last_updated_on) {
-		this.last_updated_on = last_updated_on;
+	public void setLast_modified_on(Date last_modified_on) {
+		this.last_modified_on = last_modified_on;
 	}
-	
 	
 	
 
