@@ -28,8 +28,7 @@ public class UserController {
 				
 		User u=new User();
 		
-		u.setUser_name(name);
-		u.setUser_age(age);
+		u.setUser_fname(name);
 		
 		userRepository.save(u);
 		return "User Added";

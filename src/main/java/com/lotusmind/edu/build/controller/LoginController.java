@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lotusmind.edu.build.entity.UserAccount;
 import com.lotusmind.edu.build.repository.LoginRepository;
 
 @RestController
@@ -14,10 +15,14 @@ public class LoginController {
 
 	@Autowired
 	private LoginRepository loginRepository;
+	
+	private UserAccount userAccount;
 
 	@RequestMapping(method=RequestMethod.POST, path="/signin")
-	public String login(@RequestParam(value="name", defaultValue="User") String username, 
-			@RequestParam(value="pwd", defaultValue="Password") String password) {
+	public String login(
+			@RequestParam(value="name") String username, 
+			@RequestParam(value="pwd") String password
+			) {
 
 		int logincount = loginRepository.getLoginCount(username, password);
 

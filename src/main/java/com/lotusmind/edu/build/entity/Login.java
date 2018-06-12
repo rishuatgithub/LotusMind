@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity(name="login")
 public class Login {
@@ -15,9 +14,7 @@ public class Login {
 	private int org_id;
 	private int user_id;
 	private String login_u_password;	
-	@DateTimeFormat()
 	private Date created_on;
-	@DateTimeFormat()
 	private Date last_modified_on;
 	
 	
