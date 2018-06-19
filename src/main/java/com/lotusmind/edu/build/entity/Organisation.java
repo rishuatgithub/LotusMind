@@ -21,7 +21,7 @@ public class Organisation {
 	private String country;
 	private String postal_code;
 	private int mobile;
-	private int social_id;
+	private String social_id;
 	private Date created_on;
 	private Date last_modified_on;
 	
@@ -92,10 +92,10 @@ public class Organisation {
 	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
-	public int getSocial_id() {
+	public String getSocial_id() {
 		return social_id;
 	}
-	public void setSocial_id(int social_id) {
+	public void setSocial_id(String social_id) {
 		this.social_id = social_id;
 	}
 	public Date getCreated_on() {
