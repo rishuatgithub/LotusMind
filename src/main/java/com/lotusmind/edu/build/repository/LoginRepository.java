@@ -8,9 +8,10 @@ import com.lotusmind.edu.build.entity.Login;
 
 public interface LoginRepository extends CrudRepository<Login, String> {
 
-	@Query("SELECT COUNT(DISTINCT username) FROM login where username=:username and password=:password")
-	public int getLoginCount(@Param("username") String username, @Param("password") String password);
+	@Query("SELECT count(user_id) FROM login where login_username=:username")
+	public int userExists(@Param("username") String username);
 	
-	/*@Query("INSERT INTO login VALUES(:username,:password)")
-	public boolean addNewUser(@Param("username") String username, @Param("password") String password);*/
+	
+	
+	
 }

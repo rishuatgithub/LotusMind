@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class User {
 	
 	@Id
-	private int user_id;
+	private String user_id;
 	private String user_fname;
 	private String user_lname;
 	private Date user_dob;
@@ -19,10 +19,10 @@ public class User {
 	private Date created_on;
 	private Date last_modifed_on;
 	
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 	public String getUser_fname() {

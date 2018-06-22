@@ -1,37 +1,65 @@
 package com.lotusmind.edu.build.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lotusmind.edu.build.entity.Login;
 import com.lotusmind.edu.build.entity.User;
+import com.lotusmind.edu.build.model.CryptModel;
+import com.lotusmind.edu.build.model.IDGenerator;
+import com.lotusmind.edu.build.repository.LoginRepository;
 import com.lotusmind.edu.build.repository.UserRepository;
+
 
 @RestController
 @RequestMapping(path="/user")
 public class UserController {
 	
 	@Autowired
+	private LoginRepository loginRepository;
+	
+	@Autowired
 	private UserRepository userRepository;
-	
-	@GetMapping(value="/details")
-	public @ResponseBody Iterable<User> getAllUsers(){
-		return userRepository.findAll();
-	}
-	
-	@GetMapping(value="/add")
-	public @ResponseBody String addNewUser(@RequestParam String name, @RequestParam int age) {
+		
+	@RequestMapping(name="/signup", method=RequestMethod.POST)
+	public boolean addNewUser(
+			@RequestBody int org_id,
+			@RequestBody String fname,
+			@RequestBody String lname,
+			@RequestBody String email,
+			@RequestBody int role_id,
+			@RequestBody String upasswd
+			){
+		
+		
+		if(loginRepository.userExists(email) == 0) {
+			return false;
+		}
+		
+		Login lg = new Login();
+		User ur = new User();
+		CryptModel cm = new CryptModel();
 				
-		User u=new User();
+		lg.setUser_id(new IDGenerator().generateNewUserID());
+		lg.setOrg_id(org_id);
+		lg.setLogin_u_password_salt(cm.generateSalt());
+		lg.setLogin_u_password(cm.generateCryptPass(upasswd, cm.generateSalt()));
+		lg.setLogin_username(email);
 		
-		u.setUser_fname(name);
+		ur.setEmail(email);
+		ur.setRole_id(role_id);
+		ur.setUser_fname(fname);
+		ur.setUser_lname(lname);
 		
-		userRepository.save(u);
-		return "User Added";
+		try {
+			loginRepository.save(lg);
+			userRepository.save(ur);
+		}catch(Exception e){
+			return false;
+		}
+		return true;
 	}
-
 }

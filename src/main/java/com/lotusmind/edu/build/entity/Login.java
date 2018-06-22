@@ -12,8 +12,10 @@ public class Login {
 	@Id
 	private int login_u_seq_id;
 	private int org_id;
-	private int user_id;
-	private String login_u_password;	
+	private String user_id;
+	private String login_username;
+	private String login_u_password_salt;
+	private String login_u_password;
 	private Date created_on;
 	private Date last_modified_on;
 	
@@ -30,10 +32,10 @@ public class Login {
 	public void setOrg_id(int org_id) {
 		this.org_id = org_id;
 	}
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 	public String getLogin_u_password() {
@@ -53,6 +55,18 @@ public class Login {
 	}
 	public void setLast_modified_on(Date last_modified_on) {
 		this.last_modified_on = last_modified_on;
+	}
+	public String getLogin_username() {
+		return login_username;
+	}
+	public void setLogin_username(String login_username) {
+		this.login_username = login_username;
+	}
+	public String getLogin_u_password_salt() {
+		return login_u_password_salt;
+	}
+	public void setLogin_u_password_salt(String login_u_password_salt) {
+		this.login_u_password_salt = login_u_password_salt;
 	}
 	
 	
