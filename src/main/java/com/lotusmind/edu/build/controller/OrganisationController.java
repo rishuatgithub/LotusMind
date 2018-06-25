@@ -1,6 +1,7 @@
 package com.lotusmind.edu.build.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,11 @@ public class OrganisationController {
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public @ResponseBody Iterable<Organisation> getAllOrgs(){		
 		return orgrepo.findAll();
+	}
+	
+	@RequestMapping(value="/{org_id}", method=RequestMethod.GET)
+	public @ResponseBody Iterable<Organisation> getOrgDetails(@PathVariable("org_id") int org_id){		
+		return orgrepo.findDeptdetailByID(org_id);
 	}
 	
 

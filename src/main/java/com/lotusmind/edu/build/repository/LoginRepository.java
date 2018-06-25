@@ -11,8 +11,8 @@ public interface LoginRepository extends CrudRepository<Login, String> {
 	@Query("SELECT count(user_id) FROM login where login_username=:username")
 	public int userExists(@Param("username") String username);
 	
-	
-	public String findUser(@Param("")int orgid, @Param("") String username, @Param("") String password);
+	@Query("SELECT login_u_password  FROM login where org_id=:orgid and login_username=:username")
+	public String findUser(@Param("orgid")int orgid, @Param("username") String username);
 	
 	
 }

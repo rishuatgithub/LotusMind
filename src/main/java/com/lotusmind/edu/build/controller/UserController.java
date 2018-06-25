@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lotusmind.edu.build.bean.LoginBean;
 import com.lotusmind.edu.build.bean.UserSignupBean;
 import com.lotusmind.edu.build.entity.Login;
 import com.lotusmind.edu.build.entity.User;
@@ -19,6 +18,7 @@ import com.lotusmind.edu.build.utility.IDGenerator;
 
 
 @RestController
+@RequestMapping(path="/user")
 public class UserController {
 	
 	Login lg = new Login();
@@ -31,11 +31,12 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 		
-	@RequestMapping(name="/user/signup", method=RequestMethod.POST)
-	public @ResponseBody boolean addNewUser(@RequestBody UserSignupBean usb){
+	
+	@RequestMapping(value="/signup", method=RequestMethod.POST)
+	public @ResponseBody String addNewUser(@RequestBody UserSignupBean usb){
 				
 		if(loginRepository.userExists(usb.getEmail()) != 0) {
-			return false;
+			return "User Account already exists. Please use another account.";
 		}
 		
 		String generated_userid=new IDGenerator().generateNewUserID();
@@ -58,20 +59,11 @@ public class UserController {
 			userRepository.save(ur);
 			loginRepository.save(lg);
 		}catch(Exception e){
-			return false;
+			return "Unable to register the user. Please check again.";
 		}
-		return true;
+		return "User Successfully registered.";
 	}
 	
-	@RequestMapping(name="/user/login", method=RequestMethod.POST)
-	public @ResponseBody boolean userLogin(@RequestBody LoginBean lb){
-		
-		
-		
-		boolean decrypt_pass = cm.decryptPass(lb.getPassword(), "tbc");
-		
-		return false;
-		
-	}
+	
 	
 }
