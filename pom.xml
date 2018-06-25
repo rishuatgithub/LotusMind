@@ -4,7 +4,7 @@
 	<groupId>com.lotusmind.edu.project</groupId>
 	<artifactId>LotusMind</artifactId>
 	<version>1.0.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Project Lotus Mind</name>
 
 	<parent>

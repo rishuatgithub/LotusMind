@@ -1,4 +1,4 @@
-package com.lotusmind.edu.build.model;
+package com.lotusmind.edu.build.utility;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 

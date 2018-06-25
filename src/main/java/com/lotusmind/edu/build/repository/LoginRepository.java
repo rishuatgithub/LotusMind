@@ -12,6 +12,7 @@ public interface LoginRepository extends CrudRepository<Login, String> {
 	public int userExists(@Param("username") String username);
 	
 	
+	public String findUser(@Param("")int orgid, @Param("") String username, @Param("") String password);
 	
 	
 }
