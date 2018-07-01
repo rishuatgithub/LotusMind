@@ -4,7 +4,7 @@ public class LoginBean {
 
 	private int org_id;
 	private String userid;
-	private String password;
+	private String passwd;
 	
 	public String getUserid() {
 		return userid;
@@ -12,17 +12,18 @@ public class LoginBean {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	public int getOrg_id() {
 		return org_id;
 	}
 	public void setOrg_id(int org_id) {
 		this.org_id = org_id;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	
 	
