@@ -1,5 +1,7 @@
 package com.lotusmind.edu.build.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,20 +25,22 @@ public class LoginController {
 	private LoginRepository loginRepository;
 	
 	@RequestMapping(value="/signin", method=RequestMethod.POST)
-	public @ResponseBody String userLogin(@RequestBody LoginBean lb){
+	public @ResponseBody Iterable<Login> userLogin(@RequestBody LoginBean lb){
 		
-		String db_pass=null;
+		//String db_pass=null;
+		List<Login> result = null;
 		try{
-			db_pass = loginRepository.findUser(lb.getOrg_id(), lb.getUserid());
+			//db_pass = loginRepository.findUser(lb.getOrg_id(), lb.getUserid());
 			
-			if(cm.decryptPass(lb.getPassword(), db_pass)) {
-				return "Login Success";
+			result = loginRepository.findUserByLogin(lb.getOrg_id(), lb.getUserid());
+			//System.out.println(result.get(0).getUser_id());			
+			if(cm.decryptPass(lb.getPassword(), result.get(0).getLogin_u_password())) {
+				return result;
 			}
 		}catch(Exception e) {
-			return "User Account cannot be Found. Please recheck your credentials.";
+			return result;
 		}
-		
-		return "Login Failed";
+		return result;
 		
 	}
 
